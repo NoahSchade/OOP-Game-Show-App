@@ -10,7 +10,7 @@ class Game {
     createPhrases() {
         // let newPhrase2 = new Phrase;
         newPhrase2.phrase = [];
-        newPhrase2.phrase.push('phrase1 asfas wef');
+        newPhrase2.phrase.push('phrase1');
         newPhrase2.phrase.push('phrase2 asfas');
         newPhrase2.phrase.push('phrase3 asfas qwe');
         newPhrase2.phrase.push('phrase4 asfas');
@@ -20,7 +20,8 @@ class Game {
 
     getRandomPhrase() {
        this.createPhrases();
-       let randomNumber = Math.floor(Math.random() * this.phrases.length);
+       let randomNumber = Math.floor(Math.random() * newPhrase2.phrase.length);
+       console.log(newPhrase2.phrase[randomNumber]);
        return newPhrase2.phrase[randomNumber];
     }
 
@@ -29,10 +30,11 @@ class Game {
     
     startGame() {
         document.body.querySelector('#overlay').style.display = 'none';
-        this.activePhrase = this.getRandomPhrase();
+        // this.activePhrase = this.getRandomPhrase();
         const phrase = new Phrase;
+        phrase.addPhraseToDisplay2();
         phrase.addPhraseToDisplay();
-        console.log(newPhrase2.phrase);
+        // console.log(newPhrase2.phrase);
         
     }
 

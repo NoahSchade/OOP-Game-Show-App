@@ -7,9 +7,6 @@ class Phrase {
 
 
     addPhraseToDisplay() {
-        const game2 = new Game;
-        game2.createPhrases();
-        this.phrase = game.getRandomPhrase();
         for (let i = 0; i < this.phrase.length; i++) {
             var li = document.createElement("li");
             let listLetter = document.body.querySelector('#phrase ul').appendChild(li);
@@ -32,14 +29,14 @@ class Phrase {
     addPhraseToDisplay2() {
         const game2 = new Game;
         game2.createPhrases();
-        this.phrase = game.getRandomPhrase();
+        this.phrase = game2.getRandomPhrase();
     }
     
 
     checkLetter() {
         this.addPhraseToDisplay2();
         let key = event.target.textContent;
-        console.log(this.phrase);
+        // console.log(this.phrase);
         for(let i = 0; i < this.phrase.length; i++) {
             if (key === this.phrase[i]) {
                 console.log("match");
