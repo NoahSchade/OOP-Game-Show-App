@@ -1,11 +1,14 @@
+
+
 class Phrase {
     constructor(phrase) {
         this.phrase = phrase;
     }
 
+
     addPhraseToDisplay() {
-        const game = new Game;
-        game.createPhrases('phrase1 wefqewf', 'phrase2 wefqewf', 'phrase3 wefqewf', 'phrase4 wefqewf', 'phrase5 wefqewf');
+        const game2 = new Game;
+        game2.createPhrases();
         this.phrase = game.getRandomPhrase();
         for (let i = 0; i < this.phrase.length; i++) {
             var li = document.createElement("li");
@@ -26,11 +29,26 @@ class Phrase {
         }
     }
 
-    checkLetter() {
+    addPhraseToDisplay2() {
+        const game2 = new Game;
+        game2.createPhrases();
+        this.phrase = game.getRandomPhrase();
+    }
+    
 
+    checkLetter() {
+        this.addPhraseToDisplay2();
+        let key = event.target.textContent;
+        console.log(this.phrase);
+        for(let i = 0; i < this.phrase.length; i++) {
+            if (key === this.phrase[i]) {
+                console.log("match");
+            }
+        }
     }
 
     showMatchedLetter() {
 
     }
 }
+

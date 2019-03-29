@@ -1,3 +1,5 @@
+newPhrase2 = new Phrase;
+
 class Game {
     constructor() {
         this.missed = 0;
@@ -5,18 +7,21 @@ class Game {
         this.activePhrase = null;
     }
 
-    createPhrases(phrase1, phrase2, phrase3, phrase4, phrase5) {
-        this.phrases.push(phrase1);
-        this.phrases.push(phrase2);
-        this.phrases.push(phrase3);
-        this.phrases.push(phrase4);
-        this.phrases.push(phrase5);
-        return this.phrases;
+    createPhrases() {
+        // let newPhrase2 = new Phrase;
+        newPhrase2.phrase = [];
+        newPhrase2.phrase.push('phrase1 asfas wef');
+        newPhrase2.phrase.push('phrase2 asfas');
+        newPhrase2.phrase.push('phrase3 asfas qwe');
+        newPhrase2.phrase.push('phrase4 asfas');
+        newPhrase2.phrase.push('phrase5 asfas 2r');
+        // return newPhrase2.phrase;
     }
 
     getRandomPhrase() {
+       this.createPhrases();
        let randomNumber = Math.floor(Math.random() * this.phrases.length);
-       return this.phrases[randomNumber];
+       return newPhrase2.phrase[randomNumber];
     }
 
     
@@ -27,6 +32,8 @@ class Game {
         this.activePhrase = this.getRandomPhrase();
         const phrase = new Phrase;
         phrase.addPhraseToDisplay();
+        console.log(newPhrase2.phrase);
+        
     }
 
 }
