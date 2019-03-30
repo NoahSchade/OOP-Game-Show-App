@@ -25,10 +25,9 @@ class Phrase {
         }
     }
 
-    addPhraseToDisplay2() {
-        const game2 = new Game;
-        game2.createPhrases();
-        this.phrase = game2.getRandomPhrase();
+    setRandomPhrase() {
+        const game = new Game;
+        this.phrase = game.getRandomPhrase();
         return this.phrase;
     }
     

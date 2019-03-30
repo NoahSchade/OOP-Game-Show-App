@@ -14,7 +14,10 @@ class Game {
         newPhrase2.phrase.push('phrase3 asfas qwe');
         newPhrase2.phrase.push('phrase4 asfas');
         newPhrase2.phrase.push('phrase5 asfas 2r');
+        this.phrases = newPhrase2.phrase;
+        console.log(this.phrases);
         return newPhrase2.phrase;
+        
     }
 
     getRandomPhrase() {
@@ -31,7 +34,7 @@ class Game {
         document.body.querySelector('#overlay').style.display = 'none';
         // this.activePhrase = this.getRandomPhrase();
         const phrase = new Phrase;
-        this.activePhrase = phrase.addPhraseToDisplay2();
+        this.activePhrase = phrase.setRandomPhrase();
         phrase.addPhraseToDisplay();
         // console.log(newPhrase2.phrase);
         
