@@ -5,7 +5,6 @@ class Phrase {
         this.phrase = phrase;
     }
 
-
     addPhraseToDisplay() {
         for (let i = 0; i < this.phrase.length; i++) {
             var li = document.createElement("li");
@@ -39,12 +38,15 @@ class Phrase {
         for(let i = 0; i < holder.length; i++) {
             if (key === holder[i]) {
                 console.log("match");
+                this.showMatchedLetter(key);
             }
         }
     }
 
-    showMatchedLetter() {
-
+    showMatchedLetter(letter) {
+        for(let i = 0; i < document.body.querySelectorAll('.letter.' + letter).length; i++) {
+            document.body.querySelectorAll('.letter.' + letter)[i].className = `show letter ${letter}`;
+        }
     }
 }
 
