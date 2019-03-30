@@ -9,7 +9,6 @@ document.getElementById("btn__reset").addEventListener("click", function(){
 
 
 document.getElementById("qwerty").addEventListener("click", function(){
-    game.createPhrases();
-    newPhrase.checkLetter();
+    newPhrase.checkLetter(game.activePhrase);
 });
 

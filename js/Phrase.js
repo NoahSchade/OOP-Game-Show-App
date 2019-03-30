@@ -30,15 +30,14 @@ class Phrase {
         const game2 = new Game;
         game2.createPhrases();
         this.phrase = game2.getRandomPhrase();
+        return this.phrase;
     }
     
 
-    checkLetter() {
-        this.addPhraseToDisplay2();
+    checkLetter(holder) {
         let key = event.target.textContent;
-        // console.log(this.phrase);
-        for(let i = 0; i < this.phrase.length; i++) {
-            if (key === this.phrase[i]) {
+        for(let i = 0; i < holder.length; i++) {
+            if (key === holder[i]) {
                 console.log("match");
             }
         }
