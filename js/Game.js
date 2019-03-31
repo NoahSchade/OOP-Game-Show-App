@@ -30,9 +30,21 @@ class Game {
         key.disabled = true;
         if(keyFound === false) {
             key.classList.add("wrong");
+            // this.removeLife();
         }
         keyFound = false;
 
+    }
+
+    removeLife() {
+        let liveHeart = document.body.querySelectorAll(".tries img[src = 'images/liveHeart.png']");
+        let heart = document.body.querySelectorAll(".tries img");
+
+        if(liveHeart[4]) {
+            heart[4].setAttribute("src", "images/lostHeart.png");
+        } else if (liveHeart[3]) {
+            heart[3].setAttribute("src", "images/lostHeart.png");
+        }
     }
     
     // Begins game by selecting a random phrase and displaying it to user
