@@ -1,4 +1,4 @@
-
+let keyFound = false;
 
 class Phrase {
     constructor(phrase) {
@@ -37,6 +37,7 @@ class Phrase {
         for(let i = 0; i < holder.length; i++) {
             if (key === holder[i]) {
                 this.showMatchedLetter(key);
+                keyFound = true;
             }
         }
     }

@@ -1,4 +1,4 @@
-let newPhrase2 = new Phrase;
+let newPhrase = new Phrase;
 
 class Game {
     constructor() {
@@ -8,23 +8,32 @@ class Game {
     }
 
     createPhrases() {
-        newPhrase2.phrase = [];
-        newPhrase2.phrase.push('phraseOne');
-        newPhrase2.phrase.push('phraseTwo asfas');
-        newPhrase2.phrase.push('phraseThree asfas qwe');
-        newPhrase2.phrase.push('phraseFour asfas');
-        newPhrase2.phrase.push('phraseFive asfas 2r');
-        this.phrases = newPhrase2.phrase;
-        return newPhrase2.phrase;
+        newPhrase.phrase = [];
+        newPhrase.phrase.push('phraseOne');
+        newPhrase.phrase.push('phraseTwo asfas');
+        newPhrase.phrase.push('phraseThree asfas qwe');
+        newPhrase.phrase.push('phraseFour asfas');
+        newPhrase.phrase.push('phraseFive asfas r');
+        this.phrases = newPhrase.phrase;
+        return newPhrase.phrase;
         
     }
 
     getRandomPhrase() {
        this.createPhrases();
-       let randomNumber = Math.floor(Math.random() * newPhrase2.phrase.length);
-       return newPhrase2.phrase[randomNumber];
+       let randomNumber = Math.floor(Math.random() * newPhrase.phrase.length);
+       return newPhrase.phrase[randomNumber];
     }
 
+    handleInteraction() {
+        let key = event.target;
+        key.disabled = true;
+        if(keyFound === false) {
+            key.classList.add("wrong");
+        }
+        keyFound = false;
+
+    }
     
     // Begins game by selecting a random phrase and displaying it to user
     
