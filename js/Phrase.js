@@ -33,19 +33,15 @@ class Phrase {
     
 
     checkLetter(holder) {
+        const game = new Game;
         let key = event.target.textContent;
         for(let i = 0; i < holder.length; i++) {
             if (key === holder[i]) {
-                this.showMatchedLetter(key);
+                game.showMatchedLetter(key);
                 keyFound = true;
             }
         }
     }
 
-    showMatchedLetter(letter) {
-        for(let i = 0; i < document.body.querySelectorAll('.letter.' + letter).length; i++) {
-            document.body.querySelectorAll('.letter.' + letter)[i].className = `show letter ${letter}`;
-        }
-    }
+    
 }
-
