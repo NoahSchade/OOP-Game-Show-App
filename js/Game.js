@@ -65,9 +65,17 @@ class Game {
     gameOver() {
         const overlay = document.body.querySelector('#overlay');
         const game_over_massage = document.body.querySelector('#game-over-message');
-        game_over_massage.innerHTML = 'You won';
+        let heart = document.body.querySelectorAll(".tries img");
+
+        if(this.missed === heart.length) {
+            overlay.className = 'lose';
+            game_over_massage.innerHTML = 'You lost!';
+        } else {
+            overlay.className = 'win';
+            game_over_massage.innerHTML = 'You won!';
+        }
+
         overlay.style.display = '';
-        overlay.className = 'win';
         this.missed = 0;
     }
     
