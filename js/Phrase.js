@@ -1,4 +1,4 @@
-document.body.style="user-select: none";
+// document.body.style="user-select: none";
 let keyFound = false;
 
 class Phrase {

@@ -15,3 +15,12 @@ document.getElementById("qwerty").addEventListener("mousedown", function() {
     }
 });
 
+document.addEventListener("keypress", function() {
+    console.log(String.fromCharCode(event.which || event.keyCode));
+    for(let i = 0; i < document.querySelectorAll(".section .keyrow .key").length; i++) {
+        if(event.target === document.querySelectorAll(".section .keyrow .key")[i]) {
+            newPhrase.checkLetter(game.activePhrase.toLowerCase());
+            game.handleInteraction();
+        }
+    }
+});
