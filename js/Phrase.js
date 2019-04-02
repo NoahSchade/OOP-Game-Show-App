@@ -1,3 +1,4 @@
+document.body.style="user-select: none";
 let keyFound = false;
 
 class Phrase {
@@ -21,7 +22,7 @@ class Phrase {
                 let t = document.createTextNode(this.phrase[i]);
                 li.appendChild(t);
             }
-                
+            
         }
     }
 

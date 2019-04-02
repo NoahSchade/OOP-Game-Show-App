@@ -1,6 +1,5 @@
 const game = new Game;
 
-
 document.getElementById("btn__reset").addEventListener("mousedown", function(){
     game.startGame();
 });
