@@ -11,36 +11,19 @@ class Game {
 
     createPhrases() {
         newPhrase.phrase = [];
-        newPhrase.phrase.push('phraseOne');
-        newPhrase.phrase.push('phraseTwo asfas');
-        newPhrase.phrase.push('phraseThree asfas qwe');
-        newPhrase.phrase.push('phraseFour asfas');
-        newPhrase.phrase.push('phraseFive asfas r');
+        newPhrase.phrase.push('I like computer programming');
+        newPhrase.phrase.push('Gyros are my favorite');
+        newPhrase.phrase.push('We walked to the beach');
+        newPhrase.phrase.push('Have you ever seen a double rainbow');
+        newPhrase.phrase.push('I am on my way');
         this.phrases = newPhrase.phrase;
         return newPhrase.phrase;
     }
-
-    // createPhrases() {
-    //     newPhrase.phrase = [];
-    //     newPhrase.phrase.push('a');
-    //     newPhrase.phrase.push('a');
-    //     newPhrase.phrase.push('a');
-    //     newPhrase.phrase.push('a');
-    //     newPhrase.phrase.push('a');
-    //     this.phrases = newPhrase.phrase;
-    //     return newPhrase.phrase;
-    // }
 
     getRandomPhrase() {
        this.createPhrases();
        let randomNumber = Math.floor(Math.random() * newPhrase.phrase.length);
        return newPhrase.phrase[randomNumber];
-    }
-
-    showMatchedLetter(letter) {
-        for(let i = 0; i < document.body.querySelectorAll('.letter.' + letter).length; i++) {
-            document.body.querySelectorAll('.letter.' + letter)[i].className = `show letter ${letter}`;
-        }
     }
 
     handleInteraction() {
@@ -99,8 +82,19 @@ class Game {
     
     startGame() {
         let phraseUl = document.querySelector('#phrase ul');
+        let key = document.querySelectorAll('.key');
+        let lostHeart = document.querySelectorAll('[src = "images/lostHeart.png"]');
+        
         phraseUl.innerHTML = '';
+        
+        for(let i = 0; i < key.length; i++) {
+            key[i].className = "key";
+            key[i].disabled = false;
+        }
 
+        for(let i = 0; i < lostHeart.length; i++) {
+            lostHeart[i].setAttribute("src", "images/liveHeart.png");
+        }
 
         document.body.querySelector('#overlay').style.display = 'none';
         const phrase = new Phrase;
