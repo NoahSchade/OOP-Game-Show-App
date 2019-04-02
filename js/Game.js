@@ -22,45 +22,37 @@ class Game {
 
     getRandomPhrase() {
        this.createPhrases();
-       let randomNumber = Math.floor(Math.random() * newPhrase.phrase.length);
-       return newPhrase.phrase[randomNumber];
+       let randomNumber = Math.floor(Math.random() * this.phrases.length);
+       return this.phrases[randomNumber];
     }
 
     handleInteraction() {
         let key = event.target;
+        let keyContent = event.target.textContent;
         key.disabled = true;
         if(keyFound === false) {
             key.classList.add("wrong");
             this.removeLife();
         } else {
+            newPhrase.showMatchedLetter(keyContent);
             key.classList.add("chosen");
             this.checkForWin();
         }
         keyFound = false;
-        // console.log(newPhrase);
-        // newPhrase.phrase.showMatchedLetter();
     }
 
     removeLife() {
         let liveHeart = document.body.querySelectorAll(".tries img[src = 'images/liveHeart.png']");
         let heart = document.body.querySelectorAll(".tries img");
 
-        for(let i = heart.length - 1; i >= 0; i--) {
-            if(liveHeart[i]) {
-               return heart[i].setAttribute("src", "images/lostHeart.png");
+        if(liveHeart.length !== 0) {
+            heart[liveHeart.length - 1].setAttribute("src", "images/lostHeart.png");
+            this.missed++;
+            if (this.missed === heart.length) {
+                this.gameOver();
             }
         }
     }
-
-    // checkForWin() { 
-    //     let letter = document.querySelectorAll('.letter');
-    //     console.log(letter.length);
-    //     for(let i = 0; i < letter.length; i++) {
-    //         if(letter[i] === hide){
-    //             console.log('test');
-    //         }
-    //     }
-    // }
 
     
     checkForWin() { 
@@ -76,6 +68,7 @@ class Game {
         game_over_massage.innerHTML = 'You won';
         overlay.style.display = '';
         overlay.className = 'win';
+        this.missed = 0;
     }
     
     // Begins game by selecting a random phrase and displaying it to user

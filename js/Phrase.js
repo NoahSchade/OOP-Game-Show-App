@@ -33,11 +33,9 @@ class Phrase {
     
 
     checkLetter(holder) {
-        const game = new Game;
-        let key = event.target.textContent;
+        let keyContent = event.target.textContent;
         for(let i = 0; i < holder.length; i++) {
-            if (key === holder[i]) {
-                this.showMatchedLetter(key);
+            if (keyContent === holder[i]) {
                 keyFound = true;
             }
         }
