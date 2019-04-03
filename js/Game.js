@@ -33,10 +33,14 @@ class Game {
             key.disabled = true;
             if(keyFound === false) {
                 key.classList.add("wrong");
+                key.style.backgroundColor = "red";
+                key.style.color = "white";
                 this.removeLife();
             } else {
                 newPhrase.showMatchedLetter(keyContent, e);
                 key.classList.add("chosen");
+                key.style.backgroundColor = "rgb(0, 204, 0)";
+                key.style.color = "white";
                 this.checkForWin();
             }
             keyFound = false;
@@ -47,34 +51,28 @@ class Game {
             let allKey = document.querySelectorAll('.key');
             for(let i = 0; i < allKey.length; i++) {
                 let key = allKey[i];
+                let disabledKey = key.getAttribute("disabled");
                 if (key.textContent === x) {
                     let keyContent = key.textContent;
                     key.disabled = true;
-                if(keyFound === false) {
+                if (keyFound === false && disabledKey === null) {
                     key.classList.add("wrong");
+                    key.style.backgroundColor = "red";
+                    key.style.color = "white";
                     this.removeLife();
-                } else {
+                    key.disabled = true;
+                } else if (keyFound === true && disabledKey === null) {
                     newPhrase.showMatchedLetter(keyContent, e);
                     key.classList.add("chosen");
+                    key.style.backgroundColor = "rgb(0, 204, 0)";
+                    key.style.color = "white";
                     this.checkForWin();
                 }
                  keyFound = false;
                 }       
             }
         }
-    }
-            // let keyContent = event.target.textContent;
-            // key.disabled = true;
-            // if(keyFound === false) {
-            //     key.classList.add("wrong");
-            //     this.removeLife();
-            // } else {
-            //     newPhrase.showMatchedLetter(keyContent);
-            //     key.classList.add("chosen");
-            //     this.checkForWin();
-            // }
-            // keyFound = false;
-      
+    } 
 
     removeLife() {
         let liveHeart = document.body.querySelectorAll(".tries img[src = 'images/liveHeart.png']");
@@ -92,7 +90,7 @@ class Game {
     
     checkForWin() { 
         let hide = document.querySelectorAll('.hide.letter');
-        if(hide.length === 0){
+        if(hide.length === 0) {
             this.gameOver();
         }
     }
@@ -101,6 +99,10 @@ class Game {
         const overlay = document.body.querySelector('#overlay');
         const game_over_massage = document.body.querySelector('#game-over-message');
         let heart = document.body.querySelectorAll(".tries img");
+        
+        for(let i = 0; i < heart.length; i++) {
+            heart[i].style.display = "none";
+        }
 
         if(this.missed === heart.length) {
             overlay.className = 'lose';
@@ -120,12 +122,19 @@ class Game {
         let phraseUl = document.querySelector('#phrase ul');
         let key = document.querySelectorAll('.key');
         let lostHeart = document.querySelectorAll('[src = "images/lostHeart.png"]');
-        
+        let heart = document.body.querySelectorAll(".tries img");
+
+        for(let i = 0; i < heart.length; i++) {
+            heart[i].style.display = '';
+        }
+
         phraseUl.innerHTML = '';
         
         for(let i = 0; i < key.length; i++) {
             key[i].className = "key";
             key[i].disabled = false;
+            key[i].style.backgroundColor = 'black';
+            key[i].style.color = 'red';
         }
 
         for(let i = 0; i < lostHeart.length; i++) {

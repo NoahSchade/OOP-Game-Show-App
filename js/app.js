@@ -1,10 +1,13 @@
 const game = new Game;
 
+let heart = document.body.querySelectorAll(".tries img");
+for(let i = 0; i < heart.length; i++) {
+    heart[i].style.display = 'none';
+}
+
 document.getElementById("btn__reset").addEventListener("mousedown", function(){
     game.startGame();
 });
-
-
 
 document.getElementById("qwerty").addEventListener("mousedown", function() {
     for(let i = 0; i < document.querySelectorAll(".section .keyrow .key").length; i++) {
@@ -21,50 +24,10 @@ document.addEventListener("keypress", function() {
         let keypress = 'keypress';
         newPhrase.checkLetter(game.activePhrase.toLowerCase(), keypress);
         game.handleInteraction(keypress);    
-    }
-    
+    } 
 });
 
-
-//     for(let i = 0; i < document.querySelectorAll(".section .keyrow .key").length; i++) {
-//         if(event.target === document.querySelectorAll(".section .keyrow .key")[i]) {
-//             console.log(event.target);
-//             console.log(typeof(event.target));
-//             newPhrase.checkLetter(game.activePhrase.toLowerCase());
-//             let mousedown = 'mousedown';
-//             game.handleInteraction(mousedown);
-//         }
-//     }
-// });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// document.addEventListener("keypress", function() {
-//     let x = String.fromCharCode(event.which || event.keyCode);
-//     console.log(x);
-//     let html = JSON.parse('<button class="key">' + x + '</button>');
-//     console.log(html);
-//     for(let i = 0; i < document.querySelectorAll(".section .keyrow .key").length; i++) {
-//         let y = document.querySelectorAll(".section .keyrow .key")[i].parentNode.innerHTML = html;
-//         console.log(y);
-//         if(html === y) {
-//             console.log("test");
-//             newPhrase.checkLetter(game.activePhrase.toLowerCase());
-//             game.handleInteraction();
-//         }
-//     }
-// });
+document.body.style="user-select: none";
+for (let i = 0; i < document.querySelectorAll('img[src = "images/liveHeart.png"]').length; i++) {
+    document.querySelectorAll('img[src = "images/liveHeart.png"]')[i].style.filter = "hue-rotate(130deg)";
+}
