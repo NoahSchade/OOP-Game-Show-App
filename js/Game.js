@@ -26,21 +26,44 @@ class Game {
        return this.phrases[randomNumber];
     }
 
-    handleInteraction() {
-        let key = event.target;
-        let keyContent = event.target.textContent;
-        key.disabled = true;
-        if(keyFound === false) {
-            key.classList.add("wrong");
-            this.removeLife();
-        } else {
-            newPhrase.showMatchedLetter(keyContent);
-            key.classList.add("chosen");
-            this.checkForWin();
+    handleInteraction(e) {
+        if(e === 'mousedown') {
+            let key = event.target;
+            console.log(key);
+            let keyContent = event.target.textContent;
+            key.disabled = true;
+            if(keyFound === false) {
+                key.classList.add("wrong");
+                this.removeLife();
+            } else {
+                newPhrase.showMatchedLetter(keyContent);
+                key.classList.add("chosen");
+                this.checkForWin();
+            }
+            keyFound = false;
         }
-        keyFound = false;
-    }
 
+        if(e === 'keypress') {
+            let x = String.fromCharCode(event.which || event.keyCode);
+            let key = document.querySelector('.key');
+            // for(let i = 0; i < document.querySelectorAll(".section .keyrow .key").length; i++) {
+                if (key.textContent = x) {
+                 console.log(key);
+                // }
+            }
+            // let keyContent = event.target.textContent;
+            // key.disabled = true;
+            // if(keyFound === false) {
+            //     key.classList.add("wrong");
+            //     this.removeLife();
+            // } else {
+            //     newPhrase.showMatchedLetter(keyContent);
+            //     key.classList.add("chosen");
+            //     this.checkForWin();
+            // }
+            // keyFound = false;
+        }
+    }
     removeLife() {
         let liveHeart = document.body.querySelectorAll(".tries img[src = 'images/liveHeart.png']");
         let heart = document.body.querySelectorAll(".tries img");
