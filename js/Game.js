@@ -29,14 +29,13 @@ class Game {
     handleInteraction(e) {
         if(e === 'mousedown') {
             let key = event.target;
-            console.log(key);
             let keyContent = event.target.textContent;
             key.disabled = true;
             if(keyFound === false) {
                 key.classList.add("wrong");
                 this.removeLife();
             } else {
-                newPhrase.showMatchedLetter(keyContent);
+                newPhrase.showMatchedLetter(keyContent, e);
                 key.classList.add("chosen");
                 this.checkForWin();
             }
@@ -45,13 +44,25 @@ class Game {
 
         if(e === 'keypress') {
             let x = String.fromCharCode(event.which || event.keyCode);
-            let key = document.querySelectorAll('.key');
-            for(let i = 0; i < document.querySelectorAll(".section .keyrow .key").length; i++) {
-                if (key[i].textContent === x) {
-                 console.log(key[i]);
+            let allKey = document.querySelectorAll('.key');
+            for(let i = 0; i < allKey.length; i++) {
+                let key = allKey[i];
+                if (key.textContent === x) {
+                    let keyContent = key.textContent;
+                    key.disabled = true;
+                if(keyFound === false) {
+                    key.classList.add("wrong");
+                    this.removeLife();
+                } else {
+                    newPhrase.showMatchedLetter(keyContent, e);
+                    key.classList.add("chosen");
+                    this.checkForWin();
                 }
+                 keyFound = false;
+                }       
             }
         }
+    }
             // let keyContent = event.target.textContent;
             // key.disabled = true;
             // if(keyFound === false) {
@@ -63,7 +74,7 @@ class Game {
             //     this.checkForWin();
             // }
             // keyFound = false;
-        }
+      
 
     removeLife() {
         let liveHeart = document.body.querySelectorAll(".tries img[src = 'images/liveHeart.png']");

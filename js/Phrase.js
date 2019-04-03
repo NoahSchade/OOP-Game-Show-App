@@ -33,8 +33,19 @@ class Phrase {
     }
     
 
-    checkLetter(holder) {
-        let keyContent = event.target.textContent;
+    checkLetter(holder, e) {
+        let keyContent;
+        let x = String.fromCharCode(event.which || event.keyCode);
+        if(e === 'mousedown') {
+            keyContent = event.target.textContent;
+        } else if(e === 'keypress') {
+            let allKey = document.querySelectorAll('.key');
+            for(let i = 0; i < allKey.length; i++) {
+                if (x === allKey[i].textContent) {
+                    keyContent = allKey[i].textContent;
+                }
+            }
+        }
         for(let i = 0; i < holder.length; i++) {
             if (keyContent === holder[i]) {
                 keyFound = true;

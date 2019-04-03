@@ -9,23 +9,20 @@ document.getElementById("btn__reset").addEventListener("mousedown", function(){
 document.getElementById("qwerty").addEventListener("mousedown", function() {
     for(let i = 0; i < document.querySelectorAll(".section .keyrow .key").length; i++) {
         if(event.target === document.querySelectorAll(".section .keyrow .key")[i]) {
-            console.log(event.target);
-            console.log(typeof(event.target));
-            newPhrase.checkLetter(game.activePhrase.toLowerCase());
             let mousedown = 'mousedown';
+            newPhrase.checkLetter(game.activePhrase.toLowerCase(), mousedown);
             game.handleInteraction(mousedown);
         }
     }
 });
 
 document.addEventListener("keypress", function() {
-    // let x = String.fromCharCode(event.which || event.keyCode);
-        // for(let i = 0; i < document.querySelectorAll('.key').length; i++) {
-            // if(x === document.querySelectorAll('.key')[i].textContent){
-                let keypress = 'keypress';
-                game.handleInteraction(keypress);
-            // }
-        // } 
+    if(document.querySelector('#overlay').style.display === 'none') {
+        let keypress = 'keypress';
+        newPhrase.checkLetter(game.activePhrase.toLowerCase(), keypress);
+        game.handleInteraction(keypress);    
+    }
+    
 });
 
 
