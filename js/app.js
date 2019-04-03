@@ -26,7 +26,7 @@ document.addEventListener("keypress", function() {
                 game.handleInteraction(keypress);
             // }
         // } 
-    });
+});
 
 
 //     for(let i = 0; i < document.querySelectorAll(".section .keyrow .key").length; i++) {
