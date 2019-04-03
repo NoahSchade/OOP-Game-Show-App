@@ -31,3 +31,6 @@ document.body.style="user-select: none";
 for (let i = 0; i < document.querySelectorAll('img[src = "images/liveHeart.png"]').length; i++) {
     document.querySelectorAll('img[src = "images/liveHeart.png"]')[i].style.filter = "hue-rotate(130deg)";
 }
+
+document.body.style.backgroundColor = "#2d3436";
+document.querySelector('.header').style.color = "red";
