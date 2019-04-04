@@ -28,6 +28,14 @@ document.addEventListener("keypress", function() {
 });
 
 document.body.style="user-select: none";
+
+document.body.querySelector('#overlay').style.backgroundColor = "black";
+document.body.querySelector('.title').style.color = "red";
+document.body.querySelector('#btn__reset').style.color = "red";
+document.body.querySelector('#btn__reset').style.borderColor = "red";
+document.body.querySelector('#btn__reset').style.backgroundColor = "black";
+
+
 for (let i = 0; i < document.querySelectorAll('img[src = "images/liveHeart.png"]').length; i++) {
     document.querySelectorAll('img[src = "images/liveHeart.png"]')[i].style.filter = "hue-rotate(130deg)";
 }

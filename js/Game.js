@@ -147,5 +147,11 @@ class Game {
         const savePhrase = this.activePhrase.setRandomPhrase();
         this.activePhrase.addPhraseToDisplay();
         this.activePhrase = savePhrase;
+
+        document.body.querySelector('#overlay').style.backgroundColor = "";
+        document.body.querySelector('.title').style.color = "";
+        document.body.querySelector('#btn__reset').style.color = "";
+        document.body.querySelector('#btn__reset').style.borderColor = "";
+        document.body.querySelector('#btn__reset').style.backgroundColor = "";
     }
 }
