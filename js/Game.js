@@ -47,7 +47,7 @@ class Game {
         }
 
         if(e === 'keypress') {
-            let x = String.fromCharCode(event.which || event.keyCode);
+            let x = String.fromCharCode(event.which || event.keyCode).toLowerCase();
             let allKey = document.querySelectorAll('.key');
             for(let i = 0; i < allKey.length; i++) {
                 let key = allKey[i];

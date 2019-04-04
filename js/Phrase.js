@@ -34,7 +34,7 @@ class Phrase {
 
     checkLetter(holder, e) {
         let keyContent;
-        let x = String.fromCharCode(event.which || event.keyCode);
+        let x = String.fromCharCode(event.which || event.keyCode).toLowerCase();
         if(e === 'mousedown') {
             keyContent = event.target.textContent;
         } else if(e === 'keypress') {
