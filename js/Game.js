@@ -1,6 +1,8 @@
 let newPhrase = new Phrase;
 let letter = document.querySelectorAll('.letter');
 const hide = document.querySelector('.hide');
+let previousRandomNumber = '';
+let randomNumber = '';
 
 class Game {
     constructor() {
@@ -21,9 +23,13 @@ class Game {
     }
 
     getRandomPhrase() {
-       this.createPhrases();
-       let randomNumber = Math.floor(Math.random() * this.phrases.length);
-       return this.phrases[randomNumber];
+        this.createPhrases();
+        previousRandomNumber = randomNumber;
+        randomNumber = Math.floor(Math.random() * this.phrases.length);
+        while(previousRandomNumber === randomNumber) {
+            randomNumber = Math.floor(Math.random() * this.phrases.length);
+        }
+        return this.phrases[randomNumber];
     }
 
     handleInteraction(e) {
