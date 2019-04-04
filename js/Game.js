@@ -135,6 +135,7 @@ class Game {
             key[i].disabled = false;
             key[i].style.backgroundColor = 'black';
             key[i].style.color = 'red';
+            key[i].style.borderColor = 'red';
         }
 
         for(let i = 0; i < lostHeart.length; i++) {
