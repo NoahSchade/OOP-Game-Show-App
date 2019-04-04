@@ -13,10 +13,10 @@ class Game {
 
     createPhrases() {
         newPhrase.phrase = [];
-        newPhrase.phrase.push('I like computer programming');
-        newPhrase.phrase.push('Gyros are my favorite');
-        newPhrase.phrase.push('We walked to the beach');
-        newPhrase.phrase.push('Have you ever seen a double rainbow');
+        newPhrase.phrase.push('I like beer');
+        newPhrase.phrase.push('I cannot tell');
+        newPhrase.phrase.push('We went along');
+        newPhrase.phrase.push('It is nighttime');
         newPhrase.phrase.push('I am on my way');
         this.phrases = newPhrase.phrase;
         return newPhrase.phrase;
