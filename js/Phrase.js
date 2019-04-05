@@ -1,10 +1,12 @@
 let keyFound = false;
 
 class Phrase {
+    // This constructor stores the phrases.
     constructor(phrase) {
         this.phrase = phrase;
     }
 
+    // Adds the phrase to the display.
     addPhraseToDisplay() {
         for (let i = 0; i < this.phrase.length; i++) {
             let li = document.createElement("li");
@@ -25,6 +27,7 @@ class Phrase {
         }
     }
 
+    // Sets a random phrase to the phrase property.
     setRandomPhrase() {
         const game = new Game;
         this.phrase = game.getRandomPhrase();
@@ -32,6 +35,7 @@ class Phrase {
     }
     
 
+    // Checks to see whether the letter pressed or clicked matches the phrase.
     checkLetter(holder, e) {
         let keyContent;
         let x = String.fromCharCode(event.which || event.keyCode).toLowerCase();
@@ -52,9 +56,11 @@ class Phrase {
         }
     }
 
+    // Shows the matched letter.
     showMatchedLetter(letter) {
-        for(let i = 0; i < document.body.querySelectorAll('.letter.' + letter).length; i++) {
-            document.body.querySelectorAll('.letter.' + letter)[i].className = `show letter ${letter}`;
+        const letterClass = document.body.querySelectorAll('.letter.' + letter);
+        for(let i = 0; i < letterClass.length; i++) {
+            letterClass[i].className = `show letter ${letter}`;
         }
     }
 
