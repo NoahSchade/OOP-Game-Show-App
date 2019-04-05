@@ -5,12 +5,15 @@ let previousRandomNumber = '';
 let randomNumber = '';
 
 class Game {
+    // This constructor stores the number of missed guesses,
+    // the phrases, the Phrase class and a random phrase.
     constructor() {
         this.missed = 0;
         this.phrases = [];
         this.activePhrase = null;
     }
 
+    // This method creates phrases and assigns them to the phrase and phrases properties.
     createPhrases() {
         newPhrase.phrase = [];
         newPhrase.phrase.push('I like beer');
@@ -22,6 +25,7 @@ class Game {
         return newPhrase.phrase;
     }
 
+    // Returns a random phrase while preventing the same phrase from appearing twice in a row.
     getRandomPhrase() {
         this.createPhrases();
         previousRandomNumber = randomNumber;
@@ -32,6 +36,10 @@ class Game {
         return this.phrases[randomNumber];
     }
 
+    // Checks whether a key is pressed or clicked.
+    // Styles the key and disables it when letter is selected. 
+    // Removes a heart if the player chose the wrong letter.
+    // Checks if player won every time a correct letter is chosen.
     handleInteraction(e) {
         if(e === 'mousedown') {
             let key = event.target;
@@ -80,6 +88,7 @@ class Game {
         }
     } 
 
+    // Removes a heart and stops the game if there are no more hearts.
     removeLife() {
         let liveHeart = document.body.querySelectorAll(".tries img[src = 'images/liveHeart.png']");
         let heart = document.body.querySelectorAll(".tries img");
@@ -93,7 +102,7 @@ class Game {
         }
     }
 
-    
+    // Checks if player won the game and stops the game if all the correct letters are selected.
     checkForWin() { 
         let hide = document.querySelectorAll('.hide.letter');
         if(hide.length === 0) {
@@ -101,6 +110,7 @@ class Game {
         }
     }
 
+    // Stops the game. Shows a different message and background color depending on wether player won or lost.
     gameOver() {
         const overlay = document.body.querySelector('#overlay');
         const game_over_massage = document.body.querySelector('#game-over-message');
@@ -122,8 +132,7 @@ class Game {
         this.missed = 0;
     }
     
-    // Begins game by selecting a random phrase and displaying it to user
-    
+    // Begins game by resetting it, styling the page, removing the overlay, selecting a random phrase and hiding it.
     startGame() {
         let phraseUl = document.querySelector('#phrase ul');
         let key = document.querySelectorAll('.key');
