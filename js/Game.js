@@ -37,9 +37,11 @@ class Game {
     }
 
     // Checks whether a key is pressed or clicked.
-    // Styles the key and disables it when letter is selected. 
+    // Styles the key when letter is selected.
+    // Disables the key when letter is selected. 
     // Removes a heart if the player chose the wrong letter.
     // Checks if player won every time a correct letter is chosen.
+    // Checks if player lost every time an incorrect letter is chosen
     handleInteraction(e) {
         if(e === 'mousedown') {
             let key = event.target;
