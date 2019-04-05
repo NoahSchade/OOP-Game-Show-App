@@ -132,7 +132,7 @@ class Game {
         this.missed = 0;
     }
     
-    // Begins game by resetting it, styling the page, removing the overlay, selecting a random phrase and hiding it.
+    // Begins game by resetting it, styling the onscreen keys, removing the overlay, selecting a random phrase and hiding it.
     startGame() {
         let phraseUl = document.querySelector('#phrase ul');
         let key = document.querySelectorAll('.key');
